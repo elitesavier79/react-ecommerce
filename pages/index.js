@@ -1,11 +1,20 @@
-const HomePages = (props) => {
-
-    console.log("props => ", props.products)
+const HomePages = ({ products }) => {
+  const { list } = products
+  
   return (
-    <h1></h1>
+      <div>
+          {
+            list.map(list => {
+              return (
+                  <p>{list.name}</p>
+
+                )
+            })
+          }
+      </div>
+
     )
 }
-
 
 export async function getStaticProps() {
   const res = await fetch('http://localhost:3000/api/products');
