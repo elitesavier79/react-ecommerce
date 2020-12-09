@@ -9,6 +9,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
+import PromoLabel from '@common/components/PromoLabel';
+
 const useStyles = makeStyles({
 	card:{
 		maxWidth: 360
@@ -18,7 +20,18 @@ const useStyles = makeStyles({
 	},
 	price: {
 		LineHeight: 'normal'
-	}
+	},
+	 relative: {
+    position: 'relative'
+  },
+  promoLabel: {
+    position: 'absolute',
+    bottom: 6,
+    left: 4,
+  },
+  price: {
+    lineHeight: 'normal',
+  }
 });
 
 
@@ -28,21 +41,26 @@ const ProductCard = ({ img, title, promoLabel, price, rating, sold, productID })
 	return (
 		<card>
 			<div className={classes.card}>
-			  <CardMedia 
-			  	className={classes.image}
-			  	image={img}
-			  	title={title}
-			  />
-			  <CardContent>
-			  	<Grid container direction="column">
-			  		<Typography gutterBottom variant="subtitle2" component="h2">
-			  			{title}
-			  		</Typography>
-			  		<Typography variant="overline" className={classes.price}>
-			  			{price}
-			  		</Typography>
-			  	</Grid>
-			  </CardContent>
+				  <div className={classes.relative}>
+				  <CardMedia 
+				  	className={classes.image}
+				  	image={img}
+				  	title={title}
+				  />
+				  	<div className={classes.promolabel}>
+				  		<PromoLabel  promoLabel={promoLabel}/>
+				  	</div>
+				  </div>
+				  <CardContent>
+				  	<Grid container direction="column">
+				  		<Typography gutterBottom variant="subtitle2" component="h2">
+				  			{title}
+				  		</Typography>
+				  		<Typography variant="overline" className={classes.price}>
+				  			{price}
+				  		</Typography>
+				  	</Grid>
+				  </CardContent>
 			</div>
 		</card>
 
