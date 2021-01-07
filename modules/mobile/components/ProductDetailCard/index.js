@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
 		height:0,
 		paddingTop: '56.25%',
 	},
+	productInfo:{
+		marginTop: theme.spacing(2)
+	},
 }));
 
 const ProductDetailCard = ({
@@ -65,6 +68,44 @@ const classes = useStyles();
            		</Grid>
         	</Grid>
 
+        	<Grid container spacing={1} className={classes.productInfo}>
+        		<Grid container direction="column" justify="center" item xs={3} sm={3}>
+        			<Typography variant="overline" align="center">
+        				Berat
+        			</Typography>
+        			<Typography variant="button" align="center">
+        				{weight}
+        			</Typography>
+        		</Grid>
+
+        		<Grid container direction="column" justify="center" item xs={3} sm={3}>
+        			<Typography variant="overline" align="center">
+        				Kondisi
+        			</Typography>
+        			<Typography variant="button" align="center">
+        				{condition}
+        			</Typography>
+        		</Grid>
+
+        		<Grid container direction="column" justify="center" item xs={3} sm={3}>
+        			<Typography variant="overline" align="center">
+        				Stock
+        			</Typography>
+        			<Typography variant="button" align="center">
+        				{quantity}
+        			</Typography>
+        		</Grid>
+
+        		<Grid container direction="column" justify="center" item xs={3} sm={3}>
+        			<Typography variant="overline" align="center">
+        				Terjual
+        			</Typography>
+        			<Typography variant="button" align="center">
+        				{sold}
+        			</Typography>
+        		</Grid>
+        	</Grid>
+
         </CardContent>
       </Card>
 	</div>
@@ -85,4 +126,4 @@ ProductDetailCard.propTypes = {
 }
 
 
-export default ProductDetailCard;
+export default ProductDetailCard;""
