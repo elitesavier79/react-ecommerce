@@ -13,6 +13,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ProductRating from '@common/components/ProductRating';
+import { currencyFormatter } from '@kurs/rupiah';
 
 const useStyles = makeStyles((theme) => ({
 	container:{
@@ -51,6 +53,18 @@ const classes = useStyles();
         	<Typography variant="h5" component="h1" gutterBottom>
         		{title}
         	</Typography>
+
+        	<Grid container spacing={1}>
+        		<Grid item xs={6} sm={6}>
+        			<Typography variant="button" color="secondary">
+        				{currencyFormatter(price)}
+        			</Typography>
+        		</Grid>
+        		<Grid item xs={6} sm={6}>
+        			<ProductRating rating={rating} sold={sold} alignRight />
+           		</Grid>
+        	</Grid>
+
         </CardContent>
       </Card>
 	</div>
