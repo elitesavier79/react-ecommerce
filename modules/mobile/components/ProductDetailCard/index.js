@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ProductRating from '@common/components/ProductRating';
+import PromoCard from '@common/components/PromoCard';
 import { currencyFormatter } from '@kurs/rupiah';
 
 const useStyles = makeStyles((theme) => ({
@@ -127,7 +128,7 @@ const handleExpandClick = () => {
                 className={clsx(classes.expand, {
                   [classes.expandOpen]:expanded
                 })}>
-                <ExpandMoreIcon />
+                <ExpandMoreIcon promo={promo} />
             </IconButton>
           </Grid>
         </CardActions>
@@ -142,6 +143,8 @@ const handleExpandClick = () => {
           </CardContent>
         </Collapse>
       </Card>
+      <PromoCard promo={promo}/>
+
 	</div>
 	)
 }
