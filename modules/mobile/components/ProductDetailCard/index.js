@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -27,6 +27,15 @@ const useStyles = makeStyles((theme) => ({
 	productInfo:{
 		marginTop: theme.spacing(2)
 	},
+  expand: {
+    transform: 'rotate(0deg)',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)'
+  },
 }));
 
 const ProductDetailCard = ({
@@ -43,6 +52,11 @@ const ProductDetailCard = ({
 }) => {
 
 const classes = useStyles();
+const [expanded, setExpanded] = useState(true);
+
+const handleExpandClick = () => {
+  setExpanded(!expanded);
+}
 
 	return (
 	<div className={classes.container}>
@@ -105,8 +119,28 @@ const classes = useStyles();
         			</Typography>
         		</Grid>
         	</Grid>
-
         </CardContent>
+        <CardActions>
+          <Grid container justify="center" alignItems="center">
+            <IconButton 
+                onClick={handleExpandClick}
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]:expanded
+                })}>
+                <ExpandMoreIcon />
+            </IconButton>
+          </Grid>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph variant="subtitle2">
+              Description
+            </Typography>
+            <Typography paragraph variant="body2">
+              {description}
+            </Typography>
+          </CardContent>
+        </Collapse>
       </Card>
 	</div>
 	)
