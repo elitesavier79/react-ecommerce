@@ -15,6 +15,7 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ProductRating from '@common/components/ProductRating';
 import PromoCard from '@common/components/PromoCard';
+import ProductInfoPanel from '@common/components/ProductInfoPanel';
 import { currencyFormatter } from '@kurs/rupiah';
 
 const useStyles = makeStyles((theme) => ({
@@ -144,7 +145,7 @@ const handleExpandClick = () => {
         </Collapse>
       </Card>
       <PromoCard promo={promo}/>
-
+      <ProductInfoPanel />
 	</div>
 	)
 }

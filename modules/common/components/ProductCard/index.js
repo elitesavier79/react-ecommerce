@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import PromoLabel from '@common/components/PromoLabel';
 import ProductRating from '@common/components/ProductRating';
 
+
 import { currencyFormatter } from '@kurs/rupiah';
 
 const useStyles = makeStyles({
