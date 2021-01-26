@@ -43,34 +43,34 @@ const ProductCard = ({ img, title, promoLabel, price, rating, sold, productID })
   const classes = useStyles();
 
 	return (
-		<card>
-			<div className={classes.card}>
-				  <div className={classes.relative}>
-				  <CardMedia 
-				  	className={classes.image}
-				  	image={img}
-				  	title={title}
-				  />
-				  	<div className={classes.promolabel}>
-				  		<PromoLabel  promoLabel={promoLabel}/>
-				  	</div>
-				  </div>
-				  <CardContent>
-				  	<Grid container direction="column">
-				  		<Typography gutterBottom variant="subtitle2" component="h2">
-				  			{title}
-				  		</Typography>
-				  		<Typography variant="overline" className={classes.price}>
-				  			{currencyFormatter(price)}
-				  		</Typography>
-				  		<ProductRating rating={rating} sold={sold} />
-				  	</Grid>
-				  </CardContent>
-			</div>
-		</card>
-
+		<Link href= "product/[id]" as={`product/${productID}`}>
+			<card>
+				<div className={classes.card}>
+					  <div className={classes.relative}>
+					  <CardMedia 
+					  	className={classes.image}
+					  	image={img}
+					  	title={title}
+					  />
+					  	<div className={classes.promolabel}>
+					  		<PromoLabel  promoLabel={promoLabel}/>
+					  	</div>
+					  </div>
+					  <CardContent>
+					  	<Grid container direction="column">
+					  		<Typography gutterBottom variant="subtitle2" component="h2">
+					  			{title}
+					  		</Typography>
+					  		<Typography variant="overline" className={classes.price}>
+					  			{currencyFormatter(price)}
+					  		</Typography>
+					  		<ProductRating rating={rating} sold={sold} />
+					  	</Grid>
+					  </CardContent>
+				</div>
+			</card>
+		</Link>
 	)
-
 }
 ProductCard.propTypes = {
 	img:PropTypes.string.isRequired,
